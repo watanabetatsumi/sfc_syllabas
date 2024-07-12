@@ -15,7 +15,7 @@ login_pass = os.getenv("LOGIN_PASS")
 
 access_url = "https://syllabus.sfc.keio.ac.jp/users/sign_in?locale=ja&return_to=%2F"
 #url = 'https://syllabus.sfc.keio.ac.jp/?locale=ja'
-result_url = 'https://syllabus.sfc.keio.ac.jp/courses?locale=ja&search%5Byear%5D=2024&search%5Bsemester%5D=spring'
+result_url = 'https://syllabus.sfc.keio.ac.jp/courses?locale=ja&search%5Byear%5D=2024&search%5Bsemester%5D=fall'
 session = requests.Session()
 login_info = {
     'user[cns_account]': login_name,
@@ -29,7 +29,7 @@ if 'アカウントまたはパスワードが正しくありません。' in re
 else:
     print('ログインに成功しました。')
 #response = session.get(url)
-for i in range(1,3):
+for i in range(1,10):
     print("count :", i)
     params = {
         'page':i
@@ -43,7 +43,7 @@ for i in range(1,3):
             continue
         if "卒業" in element.text:
             continue
-        elif "研究" in element.text:
+        elif "研究会" in element.text:
             continue
         elif "英語" in element.text:
             continue
